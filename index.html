@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <main class="main-area" id="sortTest">
+        <div class="sort-settings-container">
+            <div class="sort-setting-container_inner">
+                <form class="sort-settings-form">
+                    <div class="sort-settings-form_inner">
+                        <label for="arraylenght">
+                            Длина массива
+                        </label>
+                        <div class="sort-settings-form_error">{{error}}</div>
+                        <input v-bind:class="[error?'sort-settings-form__error': '', 'sort-settings-form_input']" type="text"
+                            v-model="inputQuantity" v-on:input="createRandomArray()">
+                    </div>
+                </form>
+                <div class="button-container">
+                    <div class="button-container_inner">
+                        <button class="button" v-on:click="startSort()">{{playing ? 'Стоп' : 'Старт'}}
+                        </button>
+                    </div>
+                    <div class="button-container_inner">
+                        <button class="button" v-on:click="createRandomArray()">Обновить
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="sortViewsContainer">
+
+            <div class="sortPlace">
+                <canvas id="canvas" width="900" height="900"></canvas>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+<script src="script.js"></script>
+
+
+</html>
